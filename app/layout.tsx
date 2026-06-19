@@ -83,6 +83,14 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   category: "technology",
+  icons: {
+    icon: [
+      { url: "/image/ra-light.webp", media: "(prefers-color-scheme: light)", type: "image/webp" },
+      { url: "/image/ra-dark.webp", media: "(prefers-color-scheme: dark)", type: "image/webp" },
+    ],
+    shortcut: "/image/ra-light.webp",
+    apple: "/image/ra-light.webp",
+  },
 };
 
 const jsonLd = {
