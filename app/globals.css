@@ -1,8 +1,30 @@
 @import "tailwindcss";
 
+/* Registrasi varian dark mode kustom sesuai spek Tailwind v4 Anda */
+@variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default: Light Mode Colors */
+  --background: #efeeea; /* Warna cream bawaan Anda */
+  --foreground: #273f4f; /* Warna navy bawaan Anda */
+
+  --surface: #f4f3ef; /* Warna card versi terang (sedikit lebih kontras dari cream) */
+  --text-main: #273f4f; /* Teks utama mengikuti navy */
+  --primary: #fe7743; /* Menggunakan warna orange kustom Anda sebagai warna utama */
+  --accent: #9333ea; /* Ungu aksen */
+  --border-custom: #dcdad4;
+}
+
+.dark {
+  /* Diaktifkan saat kelas .dark disuntikkan ke HTML */
+  --background: #080710; /* Hitam pekat malam portofolio Rizal */
+  --foreground: #efeeea; /* Teks kembali ke cream agar kontras */
+
+  --surface: #0f0e1c; /* Biru dongker gelap untuk card */
+  --text-main: #ffffff; /* Teks dalam card menjadi putih bersih */
+  --primary: #6366f1; /* Indigo/Ungu neon agar menyala di latar gelap */
+  --accent: #a855f7; /* Ungu neon cerah */
+  --border-custom: #1f2937;
 }
 
 @theme inline {
@@ -10,17 +32,38 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Peta Warna Statis Anda */
+  --color-cream: #efeeea;
+  --color-navy: #273f4f;
+  --color-orange: #fe7743;
+
+  /* Daftarkan Variabel Dinamis agar Sinkron dengan Fitur Toggle */
+  --color-surface: var(--surface);
+  --color-text-main: var(--text-main);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-border-custom: var(--border-custom);
+
+  --animate-marquee-horizontal-slow: marquee-horizontal 25s linear infinite;
+  --animate-spin-slow: spin 30s linear infinite;
+
+  @keyframes marquee-horizontal {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-50% - 24px));
+    }
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
