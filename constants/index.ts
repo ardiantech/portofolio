@@ -1,5 +1,5 @@
 // constants/index.ts atau di atas file page.tsx kamu
-import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiBootstrap, SiLaravel, SiCodeigniter, SiMysql, SiNginx, SiRedis, SiProxmox, SiUbuntu, SiGit, SiGithub, SiPostman } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiBootstrap, SiLaravel, SiCodeigniter, SiMysql, SiNginx, SiRedis, SiProxmox, SiUbuntu, SiGithub, SiPostman } from "react-icons/si";
 import { VscVscodeInsiders } from "react-icons/vsc";
 import { DiDatabase } from "react-icons/di"; // Alternatif ikon remote database untuk Navicat
 
@@ -76,11 +76,18 @@ export const PROJECTS_DATA = [
 
 export const EXPERIENCE_DATA = [
   {
+    period: "September 2026 - Sekarang",
+    role: "IT Software",
+    company: "PT HARDESES ABADI INDONESIA - NEW BALANCE PLANT PEKALONGAN",
+    description:
+      "Bertanggung jawab dalam pengembangan dan maintenance sistem software internal untuk mendukung operasional produksi New Balance. Mengelola infrastruktur IT, troubleshooting sistem, serta implementasi solusi teknologi untuk meningkatkan efisiensi proses bisnis di plant manufacturing.",
+  },
+  {
     period: "2025 - Sekarang",
-    role: "Fullstack Web Developer",
+    role: "Freelance Fullstack Web Developer",
     company: "CV CAHAYA MEDIA INFORMATIKA",
     description:
-      "Bekerja di lingkungan software house untuk merancang, membangun, dan mengelola berbagai aplikasi web kustom berskala bisnis. Bertanggung jawab penuh pada arsitektur frontend yang responsif serta integrasi backend API yang aman dan scalable.",
+      "Bekerja secara freelance di lingkungan software house untuk merancang, membangun, dan mengelola berbagai aplikasi web kustom berskala bisnis. Bertanggung jawab penuh pada arsitektur frontend yang responsif serta integrasi backend API yang aman dan scalable.",
   },
   {
     period: "2024 - 2025",

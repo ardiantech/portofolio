@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { Navbar } from "@/components/Navbar";
+import { HeaderClient } from "@/components/HeaderClient";
 import "./globals.css";
-import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,7 +62,7 @@ export const metadata: Metadata = {
       "Fullstack Web Developer spesialis React/Next.js & Laravel. Lihat portofolio, skill, dan pengalaman profesional saya.",
     images: [
       {
-        url: "/image/profil.png",
+        url: "/image/profile.png",
         width: 1200,
         height: 630,
         alt: "Rizal Ardianto - Fullstack Web Developer",
@@ -77,7 +74,7 @@ export const metadata: Metadata = {
     title: "Rizal Ardianto | Fullstack Web Developer",
     description:
       "Fullstack Web Developer spesialis React/Next.js & Laravel. Lihat portofolio, skill, dan pengalaman saya.",
-    images: ["/image/profil.png"],
+    images: ["/image/profile.png"],
   },
   alternates: {
     canonical: "/",
@@ -103,7 +100,7 @@ const jsonLd = {
   jobTitle: "Fullstack Web Developer",
   description:
     "Fullstack Web Developer spesialis React/Next.js dan Laravel dengan 2+ tahun pengalaman membangun aplikasi web modern dan sistem informasi.",
-  image: `${BASE_URL}/image/profil.png`,
+  image: `${BASE_URL}/image/profile.png`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Pekalongan",
@@ -133,7 +130,7 @@ const jsonLd = {
   },
   worksFor: {
     "@type": "Organization",
-    name: "CV CAHAYA MEDIA INFORMATIKA",
+    name: "PT HARDESES ABADI INDONESIA",
   },
 };
 
@@ -148,38 +145,18 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          suppressHydrationWarning
         />
       </head>
-      <body className="min-h-full flex flex-col justify-between">
+      <body className="min-h-full flex flex-col justify-between" suppressHydrationWarning>
         <ThemeProvider>
-          {/* HEADER / GLOBAL NAVBAR */}
-          <header className="border-b border-border-custom bg-background/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300">
-            <div className="max-w-6xl mx-auto px-6 flex justify-between items-center relative">
-              {/* Sisi Kiri: Logo & Nama */}
-              <Link href="/" className="py-4 flex items-center gap-2 text-sm font-bold tracking-wider text-text-main uppercase">
-                <div className="relative w-10 h-10 flex items-center justify-center">
-                  <Image src="/image/ra-light.webp" alt="RA Logo Light" fill priority sizes="40px" className="object-contain block dark:hidden" />
-                  <Image src="/image/ra-dark.webp" alt="RA Logo Dark" fill priority sizes="40px" className="object-contain hidden dark:block" />
-                </div>
-                <span className="hidden sm:inline tracking-widest text-xs font-semibold pl-2 border-l border-border-custom/60 text-gray-900 dark:text-white">Rizal Ardianto</span>
-              </Link>
-
-              {/* Pusat: Menu Navigasi */}
-              <Navbar />
-
-              {/* Sisi Kanan: Dark Mode Switcher & Download CV */}
-              <div className="py-4 flex items-center gap-3">
-                <ThemeToggle />
-                <button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer shadow-md">Download CV</button>
-              </div>
-            </div>
-          </header>
+          <HeaderClient />
 
           {/* KONTEN HALAMAN UTAMA */}
-          <main className="flex-grow max-w-6xl w-full mx-auto px-6 py-12">{children}</main>
+          <main className="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12">{children}</main>
 
           {/* FOOTER */}
-          <footer className="border-t border-border-custom py-6 text-center text-sm text-gray-500 bg-surface/20 transition-colors duration-300">© 2026 Rizal Ardianto · Dibangun dengan kopi dan semangat ☕</footer>
+          <footer className="border-t border-border-custom py-6 px-4 text-center text-xs sm:text-sm text-gray-500 bg-surface/20 transition-colors duration-300">© 2026 Rizal Ardianto · Dibangun dengan kopi dan semangat ☕</footer>
         </ThemeProvider>
       </body>
     </html>

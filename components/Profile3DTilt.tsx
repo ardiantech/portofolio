@@ -80,7 +80,7 @@ export default function Profile3DTilt() {
           {/* Bayangan halus di dalam frame */}
           <div className="absolute inset-0 shadow-[inset_0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[inset_0_4px_20px_rgba(0,0,0,0.5)] z-10 pointer-events-none" />
 
-          <Image src="/image/profil.webp" alt="Rizal Ardianto" fill priority sizes="(max-width: 1024px) 256px, 320px" className="object-cover object-center scale-102 select-none" />
+          <Image src="/image/profile.webp" alt="Rizal Ardianto" fill priority sizes="(max-width: 1024px) 256px, 320px" className="object-cover object-center scale-102 select-none" />
         </div>
 
         {/* Tag ID-Card yang menonjol keluar dari dimensi kartu (Efek Pop-out Luar) */}

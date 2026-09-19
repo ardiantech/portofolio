@@ -7,10 +7,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
+      defaultTheme="system"
       enableSystem={true}
       disableTransitionOnChange={false}
-      enableColorScheme={false} // Mencegah pemuatan skrip sinkronisasi paksa yang memicu error di Next 16
+      storageKey="portfolio-theme"
     >
       {children}
     </NextThemesProvider>
