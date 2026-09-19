@@ -314,8 +314,8 @@ export default function HomeContent() {
         </div>
       </div>
 
-      {/* ================= SECTION KARTU STATISTIK PREMIUM (FIXED OVERFLOW) ================= */}
-      <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 w-full">
+      {/* ================= SECTION KARTU STATISTIK PREMIUM (SELARAS PROFIL) ================= */}
+      <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="grid grid-cols-2 sm:grid-cols-4 gap-4 relative z-10 w-full">
         {STATS_DATA.map((stat, i) => {
           let numTextColor = "text-orange-500 dark:text-purple-400";
           if (stat.line.includes("bg-pink-500")) numTextColor = "text-pink-500 dark:text-blue-400";
@@ -329,29 +329,22 @@ export default function HomeContent() {
               key={i}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+              transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className={`p-4 md:p-5 border bg-white dark:bg-[#06060a] border-gray-100 dark:border-gray-900 rounded-2xl flex flex-col justify-between relative overflow-hidden h-32 md:h-36 shadow-sm hover:shadow-xl ${stat.glow} transition-all duration-300 cursor-pointer group`}
+              className={`p-4 bg-surface border border-border-custom rounded-xl text-center relative overflow-hidden group cursor-pointer ${stat.glow} flex flex-col justify-center min-h-[90px] md:min-h-[100px] transition-all duration-300`}
             >
-              <div className={`flex ${isLongText ? "flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-4" : "items-center gap-3 md:gap-4"} w-full min-w-0`}>
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gray-50 dark:bg-[#0d0d15] border border-gray-100 dark:border-gray-800 flex items-center justify-center text-lg md:text-xl shrink-0 group-hover:border-gray-300 dark:group-hover:border-gray-700 transition-colors"
-                >
-                  {stat.icon}
-                </motion.div>
-
-                <div className="min-w-0 w-full">
-                  <h3 className={`font-black tracking-tight leading-tight mb-0.5 truncate ${numTextColor} ${isLongText ? "text-sm sm:text-base md:text-lg lg:text-xl whitespace-normal font-bold" : "text-xl md:text-2xl lg:text-3xl"}`}>
-                    {stat.num}
-                  </h3>
-
-                  <p className="text-[10px] md:text-xs text-gray-400 dark:text-gray-500 font-semibold truncate">{stat.label}</p>
-                </div>
-              </div>
-
-              <motion.div initial={{ width: "3rem" }} whileHover={{ width: "100%" }} transition={{ duration: 0.3 }} className={`h-[2px] rounded-full ${stat.line} opacity-80 mt-2`} />
+              <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }} className="text-2xl mb-2">
+                {stat.icon}
+              </motion.div>
+              <h4
+                className={`font-black tracking-tight leading-tight transition-colors duration-300 ${numTextColor} ${
+                  isLongText ? "text-xs md:text-sm whitespace-normal px-1 break-words" : "text-2xl"
+                }`}
+              >
+                {stat.num}
+              </h4>
+              <p className="text-[10px] md:text-xs text-gray-400 dark:text-gray-500 font-medium mt-1 leading-tight">{stat.label}</p>
+              <motion.div initial={{ width: "30%" }} whileHover={{ width: "100%" }} transition={{ duration: 0.3 }} className={`h-[2px] ${stat.line} mx-auto mt-2 rounded-full`} />
             </motion.div>
           );
         })}
